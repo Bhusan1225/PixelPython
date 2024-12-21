@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class GameHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+   
     void Start()
     {
         Debug.Log("I am game Handler.");
@@ -15,4 +17,8 @@ public class GameHandler : MonoBehaviour
     {
         
     }
+
+   
+
+
 }
