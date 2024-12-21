@@ -7,7 +7,7 @@ public class GameHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("I am game Handler.");
     }
 
     // Update is called once per frame
