@@ -7,6 +7,7 @@ public class PythonController : MonoBehaviour
 
     public float pythonSpeed = 1f;
     Vector3 currentDirection = Vector3.up;
+    public foodSpawnManager spawnManager;
 
     // Start is called before the first frame update
     void Start()
@@ -48,5 +49,8 @@ public class PythonController : MonoBehaviour
         }
     }
 
- 
+public void appleEaten() 
+{
+        spawnManager.noAppleThere();
+}
 }
