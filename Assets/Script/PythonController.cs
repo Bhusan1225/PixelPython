@@ -8,13 +8,6 @@ public class PythonController : MonoBehaviour
     public float pythonSpeed = 1f;
     Vector3 currentDirection = Vector3.up;
 
-
-
-   
-
-
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -55,39 +48,5 @@ public class PythonController : MonoBehaviour
         }
     }
 
-
-
-
-
-
-
-
-
-
-    //Vector3 currentDirection = Vector3.up; // Snake starts moving up by default
-    //float moveSpeed = 5f; // Speed of the snake
-
-    //void Update()
-    //{
-    //    // Move the snake continuously in the current direction
-    //    transform.position += currentDirection * moveSpeed * Time.deltaTime;
-
-    //    // Check for input to change direction
-    //    if (Input.GetKeyDown(KeyCode.W) && currentDirection != Vector3.down)
-    //    {
-    //        currentDirection = Vector3.up; // Move Up
-    //    }
-    //    else if (Input.GetKeyDown(KeyCode.A) && currentDirection != Vector3.right)
-    //    {
-    //        currentDirection = Vector3.left; // Move Left
-    //    }
-    //    else if (Input.GetKeyDown(KeyCode.S) && currentDirection != Vector3.up)
-    //    {
-    //        currentDirection = Vector3.down; // Move Down
-    //    }
-    //    else if (Input.GetKeyDown(KeyCode.D) && currentDirection != Vector3.left)
-    //    {
-    //        currentDirection = Vector3.right; // Move Right
-    //    }
-    //}
+ 
 }
