@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 1573676712}
   - component: {fileID: 1573676710}
   m_Layer: 0
-  m_Name: w
+  m_Name: python
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -548,7 +548,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pythonSpeed: 1
-  speed: 1
 --- !u!4 &1573676712
 Transform:
   m_ObjectHideFlags: 0
@@ -576,7 +575,7 @@ GameObject:
   - component: {fileID: 1774330337}
   - component: {fileID: 1774330336}
   m_Layer: 0
-  m_Name: Python
+  m_Name: Python Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

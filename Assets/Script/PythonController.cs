@@ -6,12 +6,11 @@ public class PythonController : MonoBehaviour
 {
 
     public float pythonSpeed = 1f;
-    public float speed = 5f; // Continuous movement speed
     Vector3 currentDirection = Vector3.up;
 
 
 
-    //private int direction = 1; // Direction: 1 for right, -1 for left
+   
 
 
 
