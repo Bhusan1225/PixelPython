@@ -5,10 +5,13 @@ using UnityEngine;
 public class PythonController : MonoBehaviour
 {
 
-    // public float pythonSpeed = 3f;
-
+    public float pythonSpeed = 1f;
     public float speed = 5f; // Continuous movement speed
-    private int direction = 1; // Direction: 1 for right, -1 for left
+    Vector3 currentDirection = Vector3.up;
+
+
+
+    //private int direction = 1; // Direction: 1 for right, -1 for left
 
 
 
@@ -16,87 +19,76 @@ public class PythonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+        void Update()
     {
-        //pythonMovementrRight();
-        //controlledMovement();
+        // Move continuously in the direction the object is facing
+        transform.position += currentDirection * pythonSpeed * Time.deltaTime;
 
-
-
-        // Check for input to change direction
-        float horizontalInput = Input.GetAxis("Horizontal");
-
-        // Move along the X-axis
-        Vector3 position = transform.position;
-        position.x += horizontalInput * speed * Time.deltaTime;
-        transform.position = position;
+        // Handle direction change based on input
+        HandleDirectionChange();
     }
-//void pythonMovementrRight()
-//    {
-//        transform.position += transform.right * pythonSpeed * Time.deltaTime; // Move in the X-axis based on rotation
-//    }
 
-//    void pythonMovementrLeft()
-//    {
-//        transform.position += -transform.right * pythonSpeed * Time.deltaTime; // Move in the X-axis based on rotation
-//    }
-
-    void controlledMovement()
+    void HandleDirectionChange()
     {
+        if (Input.GetKeyDown(KeyCode.W) && currentDirection != Vector3.down) // Move Up
+        {
+            currentDirection = Vector3.up; // Move Up
+            transform.rotation = Quaternion.Euler(0, 0, 0); // Rotate to face Up
 
-        //float zRotation = transform.eulerAngles.z;
-
-        //// Check if the z-axis rotation is zero
-        //bool isZAngleZero = Mathf.Approximately(zRotation, 0f);
-
-        //// Check if the z-axis rotation is -90
-        //bool isZAngleoneeighty = Mathf.Approximately(zRotation, 180f);
-
-
-
-        //if (Input.GetKeyDown(KeyCode.W))
-        //{
-
-            
-        //    Vector3 eulerRotation = transform.eulerAngles;
-        //    eulerRotation.z = 90f;
-        //    transform.eulerAngles = eulerRotation;
-
-
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.S) && isZAngleZero == true || isZAngleoneeighty == true)
-        //{
-
-
-        //    Vector3 eulerRotation = transform.eulerAngles;
-        //    eulerRotation.z = -90f;
-        //    transform.eulerAngles = eulerRotation;
-
-
-        //}
-        //else if(Input.GetKeyDown(KeyCode.D) && isZAngleZero == false || isZAngleoneeighty == false)
-        //{
-        //    Vector3 eulerRotation = transform.eulerAngles;
-        //    eulerRotation.z = 0f;
-        //    transform.eulerAngles = eulerRotation;
-        //}
-        
-        
-        //if (Input.GetKeyDown(KeyCode.A) )
-        //{
-            
-        //    Vector3 eulerRotation = transform.eulerAngles;
-        //    eulerRotation.z = -180f;
-        //    transform.eulerAngles = eulerRotation;
-        //}
-
-
-
-
+        }
+        else if (Input.GetKeyDown(KeyCode.A) && currentDirection != Vector3.right) // Move Left
+        {
+            currentDirection = Vector3.left; // Move Left
+            transform.rotation = Quaternion.Euler(0, 0, 90); // Rotate to face Left
+        }
+        else if (Input.GetKeyDown(KeyCode.S) && currentDirection != Vector3.up) // Move Down
+        {
+            currentDirection = Vector3.down; // Move Down
+            transform.rotation = Quaternion.Euler(0, 0, 180); // Rotate to face Down
+        }
+        else if (Input.GetKeyDown(KeyCode.D) && currentDirection != Vector3.left) // Move Right
+        {
+            currentDirection = Vector3.right; // Move Right
+            transform.rotation = Quaternion.Euler(0, 0, -90); // Rotate to face Right
+        }
     }
+
+
+
+
+
+
+
+
+
+
+    //Vector3 currentDirection = Vector3.up; // Snake starts moving up by default
+    //float moveSpeed = 5f; // Speed of the snake
+
+    //void Update()
+    //{
+    //    // Move the snake continuously in the current direction
+    //    transform.position += currentDirection * moveSpeed * Time.deltaTime;
+
+    //    // Check for input to change direction
+    //    if (Input.GetKeyDown(KeyCode.W) && currentDirection != Vector3.down)
+    //    {
+    //        currentDirection = Vector3.up; // Move Up
+    //    }
+    //    else if (Input.GetKeyDown(KeyCode.A) && currentDirection != Vector3.right)
+    //    {
+    //        currentDirection = Vector3.left; // Move Left
+    //    }
+    //    else if (Input.GetKeyDown(KeyCode.S) && currentDirection != Vector3.up)
+    //    {
+    //        currentDirection = Vector3.down; // Move Down
+    //    }
+    //    else if (Input.GetKeyDown(KeyCode.D) && currentDirection != Vector3.left)
+    //    {
+    //        currentDirection = Vector3.right; // Move Right
+    //    }
+    //}
 }
