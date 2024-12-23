@@ -11,10 +11,16 @@ public class foodController : MonoBehaviour
         if (collision.gameObject.GetComponent<PythonController>() != null)
         {
             PythonController pythonController = collision.gameObject.GetComponent<PythonController>(); 
+            
             Debug.Log("I am python,I eat 1 apple.");
             pythonController.appleEaten();
+            
             Debug.Log("I got 1 point.");
             pythonController.pointScored();
+
+            Debug.Log("I body increased.");
+            
+
             Destroy(gameObject);
         }
     }

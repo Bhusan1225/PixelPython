@@ -21,7 +21,7 @@ public class PointController : MonoBehaviour
         
     }
 
-    void getPoint(int increment)
+    public void getPoint(int increment)
     {
         points += increment;
         pointText.text = "Point:" + points;

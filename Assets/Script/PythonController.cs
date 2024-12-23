@@ -11,13 +11,15 @@ public class PythonController : MonoBehaviour
     //script access
     public AppleSpawnManager spawnManager;
     public PointController pointController;
+    //public PythonLengthController lengthController;
 
- 
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
         void Update()
@@ -61,8 +63,9 @@ public void appleEaten()
 
 public void pointScored()
     {
-        pointController.
+        pointController.getPoint(1);
     }
 
+  
 
 }
