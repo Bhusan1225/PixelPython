@@ -21,7 +21,7 @@ public class PointController : MonoBehaviour
         
     }
 
-    void pythonPoint(int increment)
+    void getPoint(int increment)
     {
         points += increment;
         pointText.text = "Point:" + points;

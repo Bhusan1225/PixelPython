@@ -7,7 +7,12 @@ public class PythonController : MonoBehaviour
 
     public float pythonSpeed = 1f;
     Vector3 currentDirection = Vector3.up;
+    
+    //script access
     public AppleSpawnManager spawnManager;
+    public PointController pointController;
+
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -53,4 +58,11 @@ public void appleEaten()
 {
         spawnManager.noAppleThere();
 }
+
+public void pointScored()
+    {
+        pointController.
+    }
+
+
 }
