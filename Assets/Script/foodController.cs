@@ -19,7 +19,8 @@ public class foodController : MonoBehaviour
             pythonController.pointScored();
 
             Debug.Log("I body increased.");
-           
+            pythonController.Grow();
+
             Destroy(gameObject);
         }
     }

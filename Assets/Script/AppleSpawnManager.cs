@@ -49,15 +49,12 @@ public class AppleSpawnManager : MonoBehaviour
         Vector3 randomPosition = new Vector3(
             Random.Range(spawnAreaMin.x, spawnAreaMax.x),
             Random.Range(spawnAreaMin.y, spawnAreaMax.y)
-            
-        );
-        //Apple.SetActive(true);// set active will not work here because it works when the gameObject is in the Hierarchy buy not acive
+            );
+        
         Debug.Log("apple spawned");
         Instantiate(Apple, randomPosition, AppleSpawnRotation); //for spawning apple this will work
 
-        //// Attach a script to the apple to notify when it's destroyed
-        //foodController FoodController = Apple.AddComponent<foodController>();
-        //FoodController.spawnManager = this;
+     
 
 
         isAppleThere = true;

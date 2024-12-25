@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PythonController : MonoBehaviour
 {
@@ -29,14 +31,29 @@ public class PythonController : MonoBehaviour
         segments.Add(this.transform);
     }
 
-        void Update()
+    private void FixedUpdate()
     {
-        // Move continuously in the direction the object is facing
-        transform.position += currentDirection * pythonSpeed * Time.deltaTime;
+        for (int i = segments.Count - 1; i > 0; i--)
+        {
+            segments[i].position = segments[i - 1].position;
+        }
 
+        // Move continuously in the direction the object is facing
+        transform.position += currentDirection * pythonSpeed;
+
+        transform.position = new Vector3(
+        Mathf.Round(transform.position.x),
+        Mathf.Round(transform.position.y),
+        0.0f);
+    }
+    private void Update()
+    {
         // Handle direction change based on input
         HandleDirectionChange();
     }
+    
+    
+    
 
     void HandleDirectionChange()
     {
@@ -73,5 +90,12 @@ public void pointScored()
         pointController.getPoint(1);
     }
 
+    public void Grow()
+    {
+        Transform segment = Instantiate(this.segmentPrefab);
+        segment.position = segments[segments.Count - 1].position;
+
+        segments.Add(segment);
+    }
 
 }
