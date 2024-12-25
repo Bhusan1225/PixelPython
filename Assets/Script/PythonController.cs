@@ -7,11 +7,17 @@ public class PythonController : MonoBehaviour
 
     public float pythonSpeed = 1f;
     Vector3 currentDirection = Vector3.up;
+
+    //segment of python 
+    private List<Transform> segments;
+    public Transform segmentPrefab;
+
+
     
     //script access
     public AppleSpawnManager spawnManager;
     public PointController pointController;
-    //public PythonLengthController lengthController;
+    
 
 
     
@@ -19,7 +25,8 @@ public class PythonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        segments = new List<Transform>();
+        segments.Add(this.transform);
     }
 
         void Update()
@@ -36,24 +43,24 @@ public class PythonController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && currentDirection != Vector3.down) // Move Up
         {
             currentDirection = Vector3.up; // Move Up
-            transform.rotation = Quaternion.Euler(0, 0, 0); // Rotate to face Up
-
+            
         }
         else if (Input.GetKeyDown(KeyCode.A) && currentDirection != Vector3.right) // Move Left
         {
             currentDirection = Vector3.left; // Move Left
-            transform.rotation = Quaternion.Euler(0, 0, 90); // Rotate to face Left
+           
         }
         else if (Input.GetKeyDown(KeyCode.S) && currentDirection != Vector3.up) // Move Down
         {
             currentDirection = Vector3.down; // Move Down
-            transform.rotation = Quaternion.Euler(0, 0, 180); // Rotate to face Down
+            
         }
         else if (Input.GetKeyDown(KeyCode.D) && currentDirection != Vector3.left) // Move Right
         {
             currentDirection = Vector3.right; // Move Right
-            transform.rotation = Quaternion.Euler(0, 0, -90); // Rotate to face Right
+            
         }
+        
     }
 
 public void appleEaten() 
@@ -66,6 +73,5 @@ public void pointScored()
         pointController.getPoint(1);
     }
 
-  
 
 }
