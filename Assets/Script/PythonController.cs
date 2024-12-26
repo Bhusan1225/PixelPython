@@ -107,7 +107,25 @@ public void pointScored()
         segments.Add(segment);
     }
 
-   
+    public void Shrink()
+    {
+        
+        if (segments.Count > 1)
+        {
+            
+            Transform lastSegment = segments[segments.Count - 1];
+
+             segments.RemoveAt(segments.Count - 1);
+
+            
+            Destroy(lastSegment.gameObject);
+        }
+        else
+        {
+            Debug.Log("Cannot shrink further, only the head remains!");
+        }
+    }
+
 
 
     private void OnTriggerEnter2D(Collider2D collision)

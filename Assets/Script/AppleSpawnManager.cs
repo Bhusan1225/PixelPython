@@ -8,8 +8,8 @@ public class AppleSpawnManager : MonoBehaviour
 
     public GameObject Apple;
 
-    public Vector2 spawnAreaMin = new Vector2(-8, -8);
-    public Vector2 spawnAreaMax = new Vector2(8, 8);
+    public Vector2 spawnAreaMin = new Vector2(-24, -12);
+    public Vector2 spawnAreaMax = new Vector2(24, 13);
 
     public Quaternion AppleSpawnRotation = Quaternion.identity;
 
