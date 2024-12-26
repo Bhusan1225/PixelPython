@@ -96,6 +96,9 @@ public void pointScored()
         pointController.getPoint(1);
     }
 
+
+//python grow logic is here
+
     public void Grow()
     {
         Transform segment = Instantiate(this.segmentPrefab);
@@ -103,6 +106,8 @@ public void pointScored()
 
         segments.Add(segment);
     }
+
+   
 
 
     private void OnTriggerEnter2D(Collider2D collision)
