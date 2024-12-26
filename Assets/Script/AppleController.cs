@@ -5,7 +5,7 @@ using UnityEngine;
 public class AppleController : MonoBehaviour
 {
 
-   bool isAppleEatenBySnake;
+    bool isAppleEatenBySnake;
     private void Start()
     {
         StartCoroutine(DestroyApple(10f));
@@ -40,7 +40,7 @@ public class AppleController : MonoBehaviour
 
         PythonController pythonController = FindObjectOfType<PythonController>();
        
-         if (!isActiveAndEnabled)
+         if (!isAppleEatenBySnake)
         {
             pythonController.appleEaten();
         }
