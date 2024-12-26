@@ -5,7 +5,7 @@ using UnityEngine;
 public class AppleTrigger : MonoBehaviour
 {
 
-    bool isAppleEatenBySnake;
+    bool isAppleEatenByPython;
     private void Start()
     {
         StartCoroutine(DestroyApple(10f));
@@ -27,7 +27,7 @@ public class AppleTrigger : MonoBehaviour
             Debug.Log("I body increased.");
             pythonController.Grow();
 
-            isAppleEatenBySnake = true;
+            isAppleEatenByPython = true;
             Destroy(gameObject);
         }
     }
@@ -40,7 +40,7 @@ public class AppleTrigger : MonoBehaviour
 
         PythonController pythonController = FindObjectOfType<PythonController>();
        
-         if (!isAppleEatenBySnake)
+         if (!isAppleEatenByPython)
         {
             pythonController.appleEaten();
         }
