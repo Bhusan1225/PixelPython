@@ -8,8 +8,8 @@ public class AppleSpawnManager : MonoBehaviour
 
     public GameObject Apple;
 
-    public Vector3 spawnAreaMin = new Vector2(-8, -8);
-    public Vector3 spawnAreaMax = new Vector2(8, 8);
+    public Vector2 spawnAreaMin = new Vector2(-8, -8);
+    public Vector2 spawnAreaMax = new Vector2(8, 8);
 
     public Quaternion AppleSpawnRotation = Quaternion.identity;
 
@@ -23,11 +23,6 @@ public class AppleSpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            isAppleThere = false;
-        }
-
 
         spawnLoop();
     }
@@ -46,7 +41,7 @@ public class AppleSpawnManager : MonoBehaviour
 
     public void spawnApple()
     {
-        Vector3 randomPosition = new Vector3(
+        Vector2 randomPosition = new Vector2(
             Random.Range(spawnAreaMin.x, spawnAreaMax.x),
             Random.Range(spawnAreaMin.y, spawnAreaMax.y)
             );
