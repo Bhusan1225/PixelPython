@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PythonController : MonoBehaviour
 {
@@ -22,13 +24,17 @@ public class PythonController : MonoBehaviour
 
     //UI
     public GameObject gameoverCanvas;
-       
+    public Button ReplayButton;
+    public string sceneName;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         segments = new List<Transform>();
         segments.Add(this.transform);
+
+        ReplayButton.onClick.AddListener(OnClickReplay);
     }
 
     private void FixedUpdate()
@@ -106,9 +112,16 @@ public void pointScored()
             Debug.Log("ohh... shit I bite myself.");
             
             gameoverCanvas.SetActive(true);
-            Destroy(gameObject);
+            Destroy(gameObject, 10);
         }
     }
+    
+    void OnClickReplay()
+    {
+        //int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("Replay button clicked.");
+        SceneManager.LoadScene(sceneName);
 
+    }
 
 }
