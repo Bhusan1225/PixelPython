@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8958125312823187989}
   m_Layer: 0
   m_Name: Python head sprite
-  m_TagString: Player
+  m_TagString: Python
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

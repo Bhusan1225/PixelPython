@@ -19,10 +19,10 @@ public class PythonController : MonoBehaviour
     //script access
     public AppleSpawnManager spawnManager;
     public PointController pointController;
-    
 
-
-    
+    //UI
+    public GameObject gameoverCanvas;
+       
 
     // Start is called before the first frame update
     void Start()
@@ -97,5 +97,18 @@ public void pointScored()
 
         segments.Add(segment);
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Python Body"))
+        {
+            Debug.Log("ohh... shit I bite myself.");
+            
+            gameoverCanvas.SetActive(true);
+            Destroy(gameObject);
+        }
+    }
+
 
 }
