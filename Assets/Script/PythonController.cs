@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public enum PowerupEnum
 {
-    Shield,
+    Shield,//done 
     ScoreBoost,
     SpeedUp
 }
@@ -253,4 +253,4 @@ public void pointScored()
 
 
 
-}
+
