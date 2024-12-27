@@ -6,6 +6,14 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+public enum PowerupEnum
+{
+    Shield,
+    ScoreBoost,
+    SpeedUp
+}
+
 public class PythonController : MonoBehaviour
 {
 
@@ -16,8 +24,14 @@ public class PythonController : MonoBehaviour
     private List<Transform> segments;
     public Transform segmentPrefab;
 
+    //powerup
+    private bool hasShield = false;
+    private bool scoreBoostActive = false;
+    //private float originalSpeed;
+    public float speedMultiplier = 1.5f; // Speed boost multiplier
+    public float shieldDuration = 5f; // Duration for shield
+    public float scoreBoostDuration = 5f; // Duration for score boost
 
-    
     //script access
     public AppleSpawnManager spawnManager;
     public PointController pointController;
@@ -146,5 +160,97 @@ public void pointScored()
         SceneManager.LoadScene(sceneName);
 
     }
+
+    public void ActivatePowerUp(PowerupEnum powerUpType)
+    {
+        switch (powerUpType)
+        {
+            case PowerupEnum.Shield:
+                ActivateShield();
+                break;
+            case PowerupEnum.ScoreBoost:
+                ActivateScoreBoost();
+                break;
+            case PowerupEnum.SpeedUp:
+                ActivateSpeedUp();
+                break;
+        }
+    }
+
+    private void ActivateShield()
+    {
+        if (!hasShield)
+        {
+            hasShield = true;
+            Debug.Log("Shield Activated!");
+            Invoke(nameof(DeactivateShield), shieldDuration); 
+        }
+    }
+
+    private void DeactivateShield()
+    {
+        hasShield = false;
+        Debug.Log("Shield Deactivated!");
+    }
+
+    private void ActivateScoreBoost()
+    {
+        if (!scoreBoostActive)
+        {
+            scoreBoostActive = true;
+            Debug.Log("Score Boost Activated!");
+            // Logic to double score points (handled in your scoring system)
+            Invoke(nameof(DeactivateScoreBoost), scoreBoostDuration);
+        }
+    }
+
+    private void DeactivateScoreBoost()
+    {
+        scoreBoostActive = false;
+        Debug.Log("Score Boost Deactivated!");
+    }
+
+    private void ActivateSpeedUp()
+    {
+        Debug.Log("Speed Up Activated!");
+        GetComponent<Rigidbody>().velocity *= speedMultiplier; // Increase speed
+        Invoke(nameof(DeactivateSpeedUp), shieldDuration); // Restore original speed after duration
+    }
+
+    private void DeactivateSpeedUp()
+    {
+        GetComponent<Rigidbody>().velocity /= speedMultiplier; // Restore original speed
+        Debug.Log("Speed Up Deactivated!");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
