@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public enum PowerupEnum
 {
-    Shield,//done 
+    Shield,
     ScoreBoost,
     SpeedUp
 }
@@ -29,17 +29,17 @@ public class PythonController : MonoBehaviour
     private bool scoreBoostActive = false;
     //private float originalSpeed;
     public float speedMultiplier = 1.5f; // Speed boost multiplier
-    public float shieldDuration = 5f; // Duration for shield
+    public float shieldDuration = 15f; // Duration for shield
     public float scoreBoostDuration = 5f; // Duration for score boost
 
     //script access
     public AppleSpawnManager spawnManager;
     public PointController pointController;
 
-    //UI
-    public GameObject gameoverCanvas;
-    public Button ReplayButton;
-    public string sceneName;
+
+    //Python bites it segment
+    private OnBiteDie onbitedie;
+    
     
 
     // Start is called before the first frame update
@@ -47,8 +47,8 @@ public class PythonController : MonoBehaviour
     {
         segments = new List<Transform>();
         segments.Add(this.transform);
-
-        ReplayButton.onClick.AddListener(OnClickReplay);
+        onbitedie = GetComponent<OnBiteDie>();
+        
     }
 
     private void FixedUpdate()
@@ -142,24 +142,8 @@ public void pointScored()
 
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Python Body"))
-        {
-            Debug.Log("ohh... shit I bite myself.");
-            
-            gameoverCanvas.SetActive(true);
-            Destroy(gameObject, 10);
-        }
-    }
     
-    void OnClickReplay()
-    {
-        //int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log("Replay button clicked.");
-        SceneManager.LoadScene(sceneName);
-
-    }
+    //POWER UPS
 
     public void ActivatePowerUp(PowerupEnum powerUpType)
     {
@@ -182,15 +166,20 @@ public void pointScored()
         if (!hasShield)
         {
             hasShield = true;
-            Debug.Log("Shield Activated!");
-            Invoke(nameof(DeactivateShield), shieldDuration); 
+
+            GetComponent<OnBiteDie>().isShieldActive = true;
+            //GetComponent<OnBiteDie>().enabled = false;
+            Invoke(nameof(DeactivateShield), shieldDuration);
+            
         }
     }
 
     private void DeactivateShield()
     {
         hasShield = false;
-        Debug.Log("Shield Deactivated!");
+        //GetComponent<OnBiteDie>().enabled = true;
+        GetComponent<OnBiteDie>().isShieldActive = false;
+
     }
 
     private void ActivateScoreBoost()
