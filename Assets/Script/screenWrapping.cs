@@ -6,7 +6,7 @@ public class screenWrapping : MonoBehaviour
 {
     private Camera mainCamera;
     private Vector2 screenBounds;
-    public bool isWrapping = false;
+  
 
     void Start()
     {
@@ -21,9 +21,7 @@ public class screenWrapping : MonoBehaviour
     {
         Vector3 position = transform.position;
         
-        Collider2D collider = GetComponent<Collider2D>();
-        collider.enabled = false;
-
+        
         // Check if the object is outside the screen bounds and wrap it
         if (position.x > screenBounds.x)
         {
@@ -50,6 +48,6 @@ public class screenWrapping : MonoBehaviour
         // Apply the wrapped position back to the object
         transform.position = position;
 
-        collider.enabled = true;
+        
     }
 }
