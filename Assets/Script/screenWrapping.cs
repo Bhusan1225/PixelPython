@@ -6,6 +6,7 @@ public class screenWrapping : MonoBehaviour
 {
     private Camera mainCamera;
     private Vector2 screenBounds;
+    public bool isWrapping = false;
 
     void Start()
     {
@@ -19,24 +20,28 @@ public class screenWrapping : MonoBehaviour
     void Update()
     {
         Vector3 position = transform.position;
-
+        isWrapping = false;
         // Check if the object is outside the screen bounds and wrap it
         if (position.x > screenBounds.x)
         {
             position.x = -screenBounds.x;
+            isWrapping = true;
         }
         else if (position.x < -screenBounds.x)
         {
             position.x = screenBounds.x;
+            isWrapping = true;
         }
 
         if (position.y > screenBounds.y)
         {
             position.y = -screenBounds.y;
+            isWrapping = true;
         }
         else if (position.y < -screenBounds.y)
         {
             position.y = screenBounds.y;
+            isWrapping = true;
         }
 
         // Apply the wrapped position back to the object

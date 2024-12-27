@@ -16,9 +16,6 @@ public class OnBiteDie : MonoBehaviour
         ReplayButton.onClick.AddListener(OnClickReplay);
     }
 
-    
-    
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -27,6 +24,13 @@ public class OnBiteDie : MonoBehaviour
             Debug.Log("Shield is active, ignoring collision.");
             return;
         }
+
+        if (GetComponent<screenWrapping>().isWrapping)
+        {
+            Debug.Log("Ignoring collision due to wrapping.");
+            return;
+        }
+
 
         if (collision.gameObject.CompareTag("Python Body"))
         {

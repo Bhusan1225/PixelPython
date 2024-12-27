@@ -38,7 +38,7 @@ public class PythonController : MonoBehaviour
 
 
     //Python bites it segment
-    private OnBiteDie onbitedie;
+    private OnBiteDie onBiteDie;
     
     
 
@@ -47,7 +47,7 @@ public class PythonController : MonoBehaviour
     {
         segments = new List<Transform>();
         segments.Add(this.transform);
-        onbitedie = GetComponent<OnBiteDie>();
+        onBiteDie = GetComponent<OnBiteDie>();
         
     }
 
