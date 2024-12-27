@@ -25,13 +25,7 @@ public class OnBiteDie : MonoBehaviour
             return;
         }
 
-        if (GetComponent<screenWrapping>().isWrapping)
-        {
-            Debug.Log("Ignoring collision due to wrapping.");
-            return;
-        }
-
-
+       
         if (collision.gameObject.CompareTag("Python Body"))
         {
             Debug.Log("ohh... shit I bite myself.");

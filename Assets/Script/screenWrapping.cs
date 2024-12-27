@@ -20,31 +20,36 @@ public class screenWrapping : MonoBehaviour
     void Update()
     {
         Vector3 position = transform.position;
-        isWrapping = false;
+        
+        Collider2D collider = GetComponent<Collider2D>();
+        collider.enabled = false;
+
         // Check if the object is outside the screen bounds and wrap it
         if (position.x > screenBounds.x)
         {
             position.x = -screenBounds.x;
-            isWrapping = true;
+            
         }
         else if (position.x < -screenBounds.x)
         {
             position.x = screenBounds.x;
-            isWrapping = true;
+            
         }
 
         if (position.y > screenBounds.y)
         {
             position.y = -screenBounds.y;
-            isWrapping = true;
+            
         }
         else if (position.y < -screenBounds.y)
         {
             position.y = screenBounds.y;
-            isWrapping = true;
+            
         }
 
         // Apply the wrapped position back to the object
         transform.position = position;
+
+        collider.enabled = true;
     }
 }
