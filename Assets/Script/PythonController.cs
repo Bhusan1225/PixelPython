@@ -27,7 +27,7 @@ public class PythonController : MonoBehaviour
 
     //powerup
     private bool hasShield = false;
-    private bool scoreBoostActive = false;
+    internal bool scoreBoostActive = false;
     //private float originalSpeed;
     public float speedMultiplier = 1.5f; // Speed boost multiplier
     public float shieldDuration = 15f; // Duration for shield
@@ -38,7 +38,7 @@ public class PythonController : MonoBehaviour
     public PointController pointController;
 
 
-    //Shield on
+    //ScoreBooster on
     private OnBiteDie onBiteDie;
     public PoisonTrigger poisonTrigger;
     
@@ -110,7 +110,7 @@ public void appleEaten()
 
 public void pointScored()
     {
-        pointController.getPoint(1);
+        pointController.checkScoreboosterON_OFF();
     }
 
 
@@ -177,12 +177,12 @@ public void pointScored()
     {
         if (!hasShield)
         {
+
             hasShield = true;
             GetComponent<OnBiteDie>().isShieldActive = true;
             //GetComponent<OnBiteDie>().enabled = false;
             
-            //check
-            //poisonTrigger.isShieldActiveP = true;
+            
             Invoke(nameof(DeactivateShield), shieldDuration);
             
         }
@@ -193,11 +193,6 @@ public void pointScored()
         hasShield = false;
         //GetComponent<OnBiteDie>().enabled = true; //
         GetComponent<OnBiteDie>().isShieldActive = false;
-        
-        
-        //check 
-        //poisonTrigger.isShieldActiveP = false;
-
 
 
     }
