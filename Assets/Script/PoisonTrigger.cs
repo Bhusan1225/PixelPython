@@ -8,27 +8,16 @@ public class PoisonTrigger : MonoBehaviour
 
     bool isPoisionEatenByPython;
 
-    //public bool isShieldActiveP;
-
-    private void OnEnable()
-    {
-        //isShieldActiveP = false;
-    }
+      
 
     private void Start()
     {
         StartCoroutine(DestroyApple(30f));
-        //isShieldActiveP = false;
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if(isShieldActiveP == true)
-        //{
-            
-        //    Debug.Log("Don't worry the shield is active");
-        //    return;
-
-        //}
+       
 
         if(collision.gameObject.CompareTag("Python"))
         {

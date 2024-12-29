@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class shieldPowerUp : MonoBehaviour
 {
+    bool isShildTaken;
+
+    private void Start()
+    {
+        StartCoroutine(DestroyShield(35f));
+    }
+
+
     public PowerupEnum powerUpType;
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,5 +24,17 @@ public class shieldPowerUp : MonoBehaviour
             
 
         }    
+    }
+
+    private IEnumerator DestroyShield ( float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        ShieldSpawnController spawnShield = FindAnyObjectByType<ShieldSpawnController>();
+        if (!isShildTaken)
+        {
+            spawnShield.noShieldThere();
+        }
+        Destroy(gameObject);
     }
 }
