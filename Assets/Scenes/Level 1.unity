@@ -123,6 +123,55 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &281988280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 281988281}
+  - component: {fileID: 281988282}
+  m_Layer: 0
+  m_Name: ScoreBoosterSpawnController ----  (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &281988281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281988280}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.964036, y: -1.7519262, z: -0.07655809}
+  m_LocalScale: {x: 0.2018, y: 0.2018, z: 0.2018}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1356239348}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &281988282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281988280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed843386a141654d993c6c1a13c78d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isScoreBoosterThere: 0
+  ScoreBooster: {fileID: 8111615641662759016, guid: 667d2a12cd5a7154295d53fb96896be0, type: 3}
+  spawnAreaMin: {x: 24, y: -12}
+  spawnAreaMax: {x: 24, y: 13}
+  ScoreBoosterSpawnRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!224 &337239197 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3086843908778009299, guid: e864c0d07196e034fa890cb06f898e23, type: 3}
@@ -663,6 +712,7 @@ Transform:
   - {fileID: 979687992}
   - {fileID: 1519166573}
   - {fileID: 1555439552}
+  - {fileID: 281988281}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1519166571
@@ -1153,19 +1203,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 183656295942809875, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
       propertyPath: m_Size.x
-      value: 0.75
+      value: 0.15706009
       objectReference: {fileID: 0}
     - target: {fileID: 183656295942809875, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
       propertyPath: m_Size.y
-      value: 0.71407366
+      value: 0.18938589
       objectReference: {fileID: 0}
     - target: {fileID: 183656295942809875, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
       propertyPath: m_Offset.x
-      value: 0.0071852207
+      value: -0.03333947
       objectReference: {fileID: 0}
     - target: {fileID: 183656295942809875, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
       propertyPath: m_Offset.y
-      value: 0.017963171
+      value: 0.024361849
       objectReference: {fileID: 0}
     - target: {fileID: 1567685107260276715, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
       propertyPath: m_Enabled
@@ -1239,6 +1289,10 @@ PrefabInstance:
       propertyPath: pointController
       value: 
       objectReference: {fileID: 476896155}
+    - target: {fileID: 6823140950568910366, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
+      propertyPath: scoreBoostDuration
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 9024876631125390433, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
       propertyPath: m_Name
       value: Python head
