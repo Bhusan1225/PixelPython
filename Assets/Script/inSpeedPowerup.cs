@@ -10,7 +10,7 @@ public class inSpeedPowerup : MonoBehaviour
         if (collision.gameObject.CompareTag("Python"))
         {
             Debug.Log(" U got one Speedboost");
-
+            collision.GetComponent<PythonController>().ActivatePowerUp(powerUpType);
             Destroy(gameObject);
 
 

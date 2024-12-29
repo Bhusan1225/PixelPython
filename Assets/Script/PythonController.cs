@@ -28,7 +28,8 @@ public class PythonController : MonoBehaviour
     //powerup
     private bool hasShield = false;
     internal bool scoreBoostActive = false;
-    //private float originalSpeed;
+    private bool hasSpeedboosterActive = false;
+
     public float speedMultiplier = 1.5f; // Speed boost multiplier
     public float shieldDuration = 15f; // Duration for shield
     public float scoreBoostDuration = 5f; // Duration for score boost
@@ -61,8 +62,20 @@ public class PythonController : MonoBehaviour
             segments[i].position = segments[i - 1].position;
         }
 
-        // Move continuously in the direction the object is facing
-        transform.position += currentDirection * pythonSpeed;
+        //logic of speed booster but facing truble
+        
+        //if (hasSpeedboosterActive == true)
+        //{
+        //    pythonSpeed = 2 * pythonSpeed;
+        //}
+        //else
+        //{
+        //    pythonSpeed = 1 * pythonSpeed;
+        //}
+
+
+            // Move continuously in the direction the object is facing
+            transform.position += currentDirection * pythonSpeed;
 
         transform.position = new Vector3(
         Mathf.Round(transform.position.x),
@@ -216,14 +229,21 @@ public void pointScored()
 
     private void ActivateSpeedUp()
     {
-        Debug.Log("Speed Up Activated!");
-        GetComponent<Rigidbody>().velocity *= speedMultiplier; // Increase speed
-        Invoke(nameof(DeactivateSpeedUp), shieldDuration); // Restore original speed after duration
+        if (!hasSpeedboosterActive)
+        {
+            hasSpeedboosterActive = true;
+            Debug.Log("Speed Up Activated!");
+            Invoke(nameof(DeactivateSpeedUp), shieldDuration); // Restore original speed after duration
+        }
     }
+       
+        
+        
 
     private void DeactivateSpeedUp()
     {
-        GetComponent<Rigidbody>().velocity /= speedMultiplier; // Restore original speed
+        hasSpeedboosterActive = false;
+        
         Debug.Log("Speed Up Deactivated!");
     }
 }
