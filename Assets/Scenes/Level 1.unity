@@ -1129,6 +1129,10 @@ PrefabInstance:
       propertyPath: gameoverCanvas
       value: 
       objectReference: {fileID: 8299335663576158835}
+    - target: {fileID: 1567685107260276715, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
+      propertyPath: isShieldActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4044360974005807060, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.08
@@ -1173,6 +1177,14 @@ PrefabInstance:
       propertyPath: spawnManager
       value: 
       objectReference: {fileID: 979687991}
+    - target: {fileID: 6823140950568910366, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
+      propertyPath: poisonTrigger
+      value: 
+      objectReference: {fileID: 7041721681178474246, guid: e2c762f2492b2d04893c69e2f757eee0, type: 3}
+    - target: {fileID: 6823140950568910366, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
+      propertyPath: shieldDuration
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6823140950568910366, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
       propertyPath: pointController
       value: 

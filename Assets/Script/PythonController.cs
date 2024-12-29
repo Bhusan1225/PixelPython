@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -37,8 +38,9 @@ public class PythonController : MonoBehaviour
     public PointController pointController;
 
 
-    //Python bites it segment
+    //Shield on
     private OnBiteDie onBiteDie;
+    public PoisonTrigger poisonTrigger;
     
     
 
@@ -48,7 +50,8 @@ public class PythonController : MonoBehaviour
         segments = new List<Transform>();
         segments.Add(this.transform);
         onBiteDie = GetComponent<OnBiteDie>();
-        
+
+
     }
 
     private void FixedUpdate()
@@ -121,6 +124,15 @@ public void pointScored()
         segments.Add(segment);
     }
 
+    public void strinking()
+    {
+        if (!hasShield)
+        {
+            Shrink();
+        }
+
+        
+    }
     public void Shrink()
     {
         
@@ -166,9 +178,11 @@ public void pointScored()
         if (!hasShield)
         {
             hasShield = true;
-
             GetComponent<OnBiteDie>().isShieldActive = true;
             //GetComponent<OnBiteDie>().enabled = false;
+            
+            //check
+            //poisonTrigger.isShieldActiveP = true;
             Invoke(nameof(DeactivateShield), shieldDuration);
             
         }
@@ -177,8 +191,14 @@ public void pointScored()
     private void DeactivateShield()
     {
         hasShield = false;
-        //GetComponent<OnBiteDie>().enabled = true;
+        //GetComponent<OnBiteDie>().enabled = true; //
         GetComponent<OnBiteDie>().isShieldActive = false;
+        
+        
+        //check 
+        //poisonTrigger.isShieldActiveP = false;
+
+
 
     }
 

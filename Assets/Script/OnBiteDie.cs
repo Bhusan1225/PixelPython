@@ -14,6 +14,7 @@ public class OnBiteDie : MonoBehaviour
     void Start()
     {
         ReplayButton.onClick.AddListener(OnClickReplay);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,6 +33,7 @@ public class OnBiteDie : MonoBehaviour
 
             gameoverCanvas.SetActive(true);
             Destroy(gameObject, 20);
+            
         }
     }
 
