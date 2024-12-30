@@ -18,8 +18,11 @@ public enum PowerupEnum
 public class PythonController : MonoBehaviour
 {
 
-    public float pythonSpeed = 1f;
-    Vector3 currentDirection = Vector3.left;
+    public float pythonSpeed = 5f;
+    public float python2Speed = 5f;
+    private Vector3 player1Direction = Vector3.up;
+    private Vector3 player2Direction = Vector3.left;
+    public GameObject Python2;
 
     //segment of python 
     internal List<Transform> segments;
@@ -28,7 +31,7 @@ public class PythonController : MonoBehaviour
     //powerup
     internal bool hasShield = false;
     internal bool scoreBoostActive = false;
-    private bool hasSpeedboosterActive = false;
+    private bool  hasSpeedboosterActive = false;
 
     public float speedMultiplier = 1.5f; // Speed boost multiplier
     public float shieldDuration = 15f; // Duration for shield
@@ -63,7 +66,7 @@ public class PythonController : MonoBehaviour
         }
 
         //logic of speed booster but facing truble
-        
+
         //if (hasSpeedboosterActive == true)
         //{
         //    pythonSpeed = 2 * pythonSpeed;
@@ -74,49 +77,86 @@ public class PythonController : MonoBehaviour
         //}
 
 
-     // Move continuously in the direction the object is facing
-     transform.position += currentDirection * pythonSpeed;
-
-        transform.position = new Vector3(
-        Mathf.Round(transform.position.x),
-        Mathf.Round(transform.position.y),
-        0.0f);
+        MovePlayer1();
+        MovePlayer2();
     }
     private void Update()
     {
         // Handle direction change based on input
-        HandleDirectionChange();
+        HandlePlayer1DirectionChange();
+        HandlePlayer2DirectionChange();
     }
-    
-    
-    
 
-    void HandleDirectionChange()
+    void MovePlayer1()
     {
-        if (Input.GetKeyDown(KeyCode.W) && currentDirection != Vector3.down) // Move Up
-        {
-            currentDirection = Vector3.up; // Move Up
-            
-        }
-        else if (Input.GetKeyDown(KeyCode.A) && currentDirection != Vector3.right) // Move Left
-        {
-            currentDirection = Vector3.left; // Move Left
-           
-        }
-        else if (Input.GetKeyDown(KeyCode.S) && currentDirection != Vector3.up) // Move Down
-        {
-            currentDirection = Vector3.down; // Move Down
-            
-        }
-        else if (Input.GetKeyDown(KeyCode.D) && currentDirection != Vector3.left) // Move Right
-        {
-            currentDirection = Vector3.right; // Move Right
-            
-        }
+        // Move Player 1 continuously in the current direction
+        transform.position += player1Direction * pythonSpeed * Time.deltaTime;
+
         
+        transform.position = new Vector3(
+            Mathf.Round(transform.position.x),
+            Mathf.Round(transform.position.y),
+            0.0f
+        );
     }
 
-public void appleEaten() 
+    void MovePlayer2()
+    {
+        Vector3 python2Position = Python2.transform.position;
+
+        python2Position += player2Direction * python2Speed * Time.deltaTime;
+
+
+        python2Position = new Vector3(
+            Mathf.Round(python2Position.x),
+            Mathf.Round(python2Position.y),
+            0.0f
+        );
+        Python2.transform.position = python2Position;
+    }
+
+    //player 1
+    void HandlePlayer1DirectionChange()
+    {
+        if (Input.GetKeyDown(KeyCode.W) && player1Direction != Vector3.down) // Player 1 Move Up
+        {
+            player1Direction = Vector3.up; // Move Up
+        }
+        else if (Input.GetKeyDown(KeyCode.A) && player1Direction != Vector3.right) // Player 1 Move Left
+        {
+            player1Direction = Vector3.left; // Move Left
+        }
+        else if (Input.GetKeyDown(KeyCode.S) && player1Direction != Vector3.up) // Player 1 Move Down
+        {
+            player1Direction = Vector3.down; // Move Down
+        }
+        else if (Input.GetKeyDown(KeyCode.D) && player1Direction != Vector3.left) // Player 1 Move Right
+        {
+            player1Direction = Vector3.right; // Move Right
+        }
+    }
+    //player 2
+    void HandlePlayer2DirectionChange()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow) && player2Direction != Vector3.down) // Player 2 Move Up
+        {
+            player2Direction = Vector3.up; // Move Up
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) && player2Direction != Vector3.right) // Player 2 Move Left
+        {
+            player2Direction = Vector3.left; // Move Left
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow) && player2Direction != Vector3.up) // Player 2 Move Down
+        {
+            player2Direction = Vector3.down; // Move Down
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && player2Direction != Vector3.left) // Player 2 Move Right
+        {
+            player2Direction = Vector3.right; // Move Right
+        }
+    }
+
+    public void appleEaten() 
 {
         spawnManager.noAppleThere();
 }
