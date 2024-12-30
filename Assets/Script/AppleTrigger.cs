@@ -14,7 +14,7 @@ public class AppleTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PythonController>() != null)
+        if (collision.gameObject.CompareTag("Python"))
         {
             PythonController pythonController = collision.gameObject.GetComponent<PythonController>(); 
             
