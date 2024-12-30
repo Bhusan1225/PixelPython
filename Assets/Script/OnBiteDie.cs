@@ -22,7 +22,7 @@ public class OnBiteDie : MonoBehaviour
     {
         PythonController python = FindAnyObjectByType<PythonController>();
                        
-        if (collision.gameObject.CompareTag("Python Body") && python.hasShield == false)
+        if (collision.gameObject.CompareTag("Python Body") && python.hasShield == false)// working properlys
         {
             Debug.Log("ohh... shit I bite myself.");
 

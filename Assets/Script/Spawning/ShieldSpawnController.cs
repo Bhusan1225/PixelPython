@@ -14,7 +14,7 @@ public class ShieldSpawnController : MonoBehaviour
     public Vector2 spawnAreaMax = new Vector2(18, 15);
 
     public Quaternion ShieldSpawnRotation = Quaternion.identity;
-   // public float SpawnDuration = 20f;
+    
 
 
     // Update is called once per frame
@@ -33,27 +33,27 @@ public class ShieldSpawnController : MonoBehaviour
         spawnLoop();
     }
 
-    public void spawnLoop()
+    public void spawnLoop()        
     {
 
 
         while (isShieldThere == false)
         {
-            //Invoke(nameof(spawnPoison), SpawnDuration);
 
-            spawnPoison();
+
+            spawnShield();
 
         }
     }
 
-    public void spawnPoison()
+    public void spawnShield()
     {
         Vector2 randomPosition = new Vector2(
             Random.Range(spawnAreaMin.x, spawnAreaMax.x),
             Random.Range(spawnAreaMin.y, spawnAreaMax.y)
             );
 
-        Debug.Log("Poison spawned");
+        Debug.Log("Shield spawned");
         Instantiate(Shield, randomPosition, ShieldSpawnRotation);
 
         isShieldThere = true;

@@ -217,7 +217,7 @@ public void pointScored()
         {
             scoreBoostActive = true;
             Debug.Log("Score Boost Activated!");
-            // Logic to double score points (handled in your scoring system)
+            
             Invoke(nameof(DeactivateScoreBoost), scoreBoostDuration);
         }
     }

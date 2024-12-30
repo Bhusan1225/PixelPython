@@ -5,6 +5,7 @@ using UnityEngine;
 public class shieldPowerUp : MonoBehaviour
 {
     bool isShildTaken;
+    public float SpawnDuration = 5f;
 
     private void Start()
     {
@@ -18,16 +19,30 @@ public class shieldPowerUp : MonoBehaviour
         if (collision.gameObject.CompareTag("Python"))
         {
 
-            ShieldSpawnController spawnShield = FindAnyObjectByType<ShieldSpawnController>();
-            spawnShield.noShieldThere();
-
-            Debug.Log(" U got one shild");
-            collision.GetComponent<PythonController>().ActivatePowerUp(powerUpType);
-            Destroy(gameObject); 
 
             
 
-        }    
+            Debug.Log(" U got one shild");
+            collision.GetComponent<PythonController>().ActivatePowerUp(powerUpType);
+
+            gameObject.SetActive(false);
+            Destroy(gameObject,10);
+
+        
+
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Invoke(nameof(checkSpawnShield), SpawnDuration);//working
+
+    }
+
+    void checkSpawnShield()
+    {
+        ShieldSpawnController spawnShield = FindAnyObjectByType<ShieldSpawnController>();
+        spawnShield.noShieldThere();
     }
 
     private IEnumerator DestroyShield ( float delay)
