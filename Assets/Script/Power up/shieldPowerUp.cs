@@ -27,7 +27,7 @@ public class shieldPowerUp : MonoBehaviour
 
         }
 
-        if (collision.gameObject.CompareTag("Python2"))//checkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+        if (collision.gameObject.CompareTag("Python2"))
         {
 
             Debug.Log(" U got one shield");

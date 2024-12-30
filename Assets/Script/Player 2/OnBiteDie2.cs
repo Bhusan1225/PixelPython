@@ -8,12 +8,16 @@ public class OnBiteDie2 : MonoBehaviour
 {  //UI
     public GameObject gameoverCanvas;
     public Button ReplayButton;
+    public Button QuitButton;
+
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
         ReplayButton.onClick.AddListener(OnClickReplay);
+        QuitButton.onClick.AddListener(OnClickQuit);
 
 
     }
@@ -32,6 +36,13 @@ public class OnBiteDie2 : MonoBehaviour
         }
     }
 
+
+
+    void OnClickQuit()
+    {
+        SceneManager.LoadScene(0);
+
+    }
     void OnClickReplay()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
