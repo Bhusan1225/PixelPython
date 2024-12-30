@@ -25,7 +25,7 @@ public class ScoreBoosterSpawnController : MonoBehaviour
     IEnumerator DelayedStart()
     {
 
-        yield return new WaitForSeconds(50f);
+        yield return new WaitForSeconds(70f);
 
 
         spawnLoop();

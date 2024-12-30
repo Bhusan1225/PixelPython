@@ -6,9 +6,10 @@ using UnityEngine;
 public class ScorePowerUp : MonoBehaviour
 {
     public PowerupEnum powerUpType;
-
+    public float SpawnDuration = 5f;
 
     bool isScoreboostertaken;
+
     private void Start()
     {
         StartCoroutine(DestroyScoreBooster(39f));
@@ -17,13 +18,29 @@ public class ScorePowerUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Python"))
         {
-            Debug.Log(" U got one scoreboost");
+            Debug.Log(" U got one scoreBooster");
             collision.GetComponent<PythonController>().ActivatePowerUp(powerUpType);
-            Destroy(gameObject);
+
+
+            gameObject.SetActive(false);
+            Destroy(gameObject, 20);
 
 
 
         }
+    }
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Invoke(nameof(checkSpawnScoreBooster), SpawnDuration);//working perfectly
+
+    }
+
+    void checkSpawnScoreBooster()
+    {
+        ScoreBoosterSpawnController spawnScoreBoster = FindAnyObjectByType<ScoreBoosterSpawnController>();
+        spawnScoreBoster.noScoreBoosterThere();
     }
 
     private IEnumerator DestroyScoreBooster(float delay)

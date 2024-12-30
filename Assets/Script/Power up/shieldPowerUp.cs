@@ -5,7 +5,7 @@ using UnityEngine;
 public class shieldPowerUp : MonoBehaviour
 {
     bool isShildTaken;
-    public float SpawnDuration = 5f;
+    public float SpawnDuration = 20f;
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class shieldPowerUp : MonoBehaviour
 
             
 
-            Debug.Log(" U got one shild");
+            Debug.Log(" U got one shield");
             collision.GetComponent<PythonController>().ActivatePowerUp(powerUpType);
 
             gameObject.SetActive(false);
@@ -35,7 +35,7 @@ public class shieldPowerUp : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Invoke(nameof(checkSpawnShield), SpawnDuration);//working
+        Invoke(nameof(checkSpawnShield), SpawnDuration);//working perfectly
 
     }
 
