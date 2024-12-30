@@ -1,20 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Serialization;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-
-
-
-public class PythonController : MonoBehaviour
+public class Python2Controller : MonoBehaviour
 {
-
     public float pythonSpeed = 1f;
-    Vector3 currentDirection = Vector3.up;
+    Vector3 currentDirection = Vector3.left;
 
     //segment of python 
     internal List<Transform> segments;
@@ -31,14 +22,14 @@ public class PythonController : MonoBehaviour
 
     //script access
     public AppleSpawnManager spawnManager;
-    public PointController pointController;
+    public Point2Controller pointController;
 
 
     //ScoreBooster on
     private OnBiteDie onBiteDie;
     public PoisonTrigger poisonTrigger;
-    
-    
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +49,7 @@ public class PythonController : MonoBehaviour
         }
 
         //logic of speed booster but facing truble
-        
+
         //if (hasSpeedboosterActive == true)
         //{
         //    pythonSpeed = 2 * pythonSpeed;
@@ -69,8 +60,8 @@ public class PythonController : MonoBehaviour
         //}
 
 
-     // Move continuously in the direction the object is facing
-     transform.position += currentDirection * pythonSpeed;
+        // Move continuously in the direction the object is facing
+        transform.position += currentDirection * pythonSpeed;
 
         transform.position = new Vector3(
         Mathf.Round(transform.position.x),
@@ -82,41 +73,37 @@ public class PythonController : MonoBehaviour
         // Handle direction change based on input
         HandleDirectionChange();
     }
-    
-    
-    
+
+
+
 
     void HandleDirectionChange()
     {
-        if (Input.GetKeyDown(KeyCode.W) && currentDirection != Vector3.down) // Move Up
+        if (Input.GetKeyDown(KeyCode.UpArrow) && currentDirection != Vector3.down) // Move Up
         {
             currentDirection = Vector3.up; // Move Up
-            
         }
-        else if (Input.GetKeyDown(KeyCode.A) && currentDirection != Vector3.right) // Move Left
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) && currentDirection != Vector3.right) // Move Left
         {
             currentDirection = Vector3.left; // Move Left
-           
         }
-        else if (Input.GetKeyDown(KeyCode.S) && currentDirection != Vector3.up) // Move Down
+        else if (Input.GetKeyDown(KeyCode.DownArrow) && currentDirection != Vector3.up) // Move Down
         {
             currentDirection = Vector3.down; // Move Down
-            
         }
-        else if (Input.GetKeyDown(KeyCode.D) && currentDirection != Vector3.left) // Move Right
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && currentDirection != Vector3.left) // Move Right
         {
             currentDirection = Vector3.right; // Move Right
-            
         }
-        
     }
 
-public void appleEaten() 
-{
-        spawnManager.noAppleThere();
-}
 
-public void pointScored()
+    public void appleEaten()
+    {
+        spawnManager.noAppleThere();
+    }
+
+    public void pointScored()
     {
         pointController.checkScoreboosterON_OFF();
     }
@@ -144,19 +131,19 @@ public void pointScored()
             Shrink();
         }
 
-        
+
     }
     public void Shrink()
     {
-        
+
         if (segments.Count > 1)
         {
-            
+
             Transform lastSegment = segments[segments.Count - 1];
 
-             segments.RemoveAt(segments.Count - 1);
+            segments.RemoveAt(segments.Count - 1);
 
-            
+
             Destroy(lastSegment.gameObject);
         }
         else
@@ -167,7 +154,7 @@ public void pointScored()
 
 
 
-    
+
     //POWER UPS
 
     public void ActivatePowerUp(PowerupEnum powerUpType)
@@ -192,9 +179,9 @@ public void pointScored()
         {
 
             hasShield = true;
-            
+
             Invoke(nameof(DeactivateShield), shieldDuration);
-            
+
         }
     }
 
@@ -202,7 +189,7 @@ public void pointScored()
     {
 
         hasShield = false;
-       
+
 
     }
 
@@ -212,7 +199,7 @@ public void pointScored()
         {
             scoreBoostActive = true;
             Debug.Log("Score Boost Activated!");
-            
+
             Invoke(nameof(DeactivateScoreBoost), scoreBoostDuration);
         }
     }
@@ -232,15 +219,14 @@ public void pointScored()
             Invoke(nameof(DeactivateSpeedUp), shieldDuration); // Restore original speed after duration
         }
     }
-       
-        
-        
+
+
+
 
     private void DeactivateSpeedUp()
     {
         hasSpeedboosterActive = false;
-        
+
         Debug.Log("Speed Up Deactivated!");
     }
 }
-

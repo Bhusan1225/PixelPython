@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Python Body
   - Python
+  - Python2
   layers:
   - Default
   - TransparentFX

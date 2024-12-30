@@ -1,31 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 
-public class PointController : MonoBehaviour
+public class Point2Controller : MonoBehaviour
 {
-    public TextMeshProUGUI pointText;
+    public TextMeshProUGUI point2Text;
     int points = 0;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
     public void checkScoreboosterON_OFF()
     {
         PythonController python = FindAnyObjectByType<PythonController>();
-        if (python.scoreBoostActive ==false)
+        if (python.scoreBoostActive == false)
         {
             getPoint(1);
         }
@@ -37,13 +36,13 @@ public class PointController : MonoBehaviour
     public void getPoint(int increment)
     {
         points += increment;
-        pointText.text = "PLAYER 1 Point:" + points;
+        point2Text.text = "PLAYER 2 Point:" + points;
     }
 
     public void getDoublegetPoint(int DoubleIncrement)
     {
         points += DoubleIncrement;
-        pointText.text = "PLAYER 1 Point:" + points;
+        point2Text.text = "PLAYER 2 Point:" + points;
     }
 
 
@@ -62,6 +61,6 @@ public class PointController : MonoBehaviour
     public void LoosePoint(int decrement)
     {
         points -= decrement;
-        pointText.text = "PLAYER 1 Point:" + points;
+        point2Text.text = "PLAYER 2 Point:" + points;
     }
 }

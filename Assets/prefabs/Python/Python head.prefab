@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.0961619, g: 0.5396226, b: 0.0111997025, a: 1}
+  m_Color: {r: 0.22352941, g: 0.99215686, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -148,7 +148,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.03333947, y: 0.024361849}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -159,7 +159,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75, y: 0.75}
+  m_Size: {x: 0.15706009, y: 0.18938589}
   m_EdgeRadius: 0
 --- !u!114 &1567685107260276715
 MonoBehaviour:
@@ -175,7 +175,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameoverCanvas: {fileID: 0}
   ReplayButton: {fileID: 0}
-  isShieldActive: 0
 --- !u!114 &6823140950568910366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,10 +190,11 @@ MonoBehaviour:
   pythonSpeed: 1
   segmentPrefab: {fileID: 3078903004531690011, guid: 880e90d43814e3b419a8d22e25f90056, type: 3}
   speedMultiplier: 1.5
-  shieldDuration: 20
-  scoreBoostDuration: 5
+  shieldDuration: 10
+  scoreBoostDuration: 100
   spawnManager: {fileID: 0}
   pointController: {fileID: 0}
+  poisonTrigger: {fileID: 7041721681178474246, guid: e2c762f2492b2d04893c69e2f757eee0, type: 3}
 --- !u!114 &3700325315841762151
 MonoBehaviour:
   m_ObjectHideFlags: 0
