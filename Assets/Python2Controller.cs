@@ -16,7 +16,7 @@ public class Python2Controller : MonoBehaviour
     internal bool scoreBoostActive = false;
     private bool hasSpeedboosterActive = false;
 
-    public float speedMultiplier = 1.5f; // Speed boost multiplier
+    
     public float shieldDuration = 15f; // Duration for shield
     public float scoreBoostDuration = 5f; // Duration for score boost
 

@@ -25,11 +25,19 @@ public class ScorePowerUp : MonoBehaviour
             gameObject.SetActive(false);
             Destroy(gameObject, 20);
 
+        }
 
+        if (collision.gameObject.CompareTag("Python2"))
+        {
+            Debug.Log(" U got one scoreBooster");
+            collision.GetComponent<Python2Controller>().ActivatePowerUp(powerUpType);
+
+
+            gameObject.SetActive(false);
+            Destroy(gameObject, 20);
 
         }
     }
-
 
     private void OnTriggerExit2D(Collider2D collision)
     {
