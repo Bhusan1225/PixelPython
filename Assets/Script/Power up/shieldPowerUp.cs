@@ -19,16 +19,22 @@ public class shieldPowerUp : MonoBehaviour
         if (collision.gameObject.CompareTag("Python"))
         {
 
-
-            
-
             Debug.Log(" U got one shield");
             collision.GetComponent<PythonController>().ActivatePowerUp(powerUpType);
 
             gameObject.SetActive(false);
             Destroy(gameObject,10);
 
-        
+        }
+
+        if (collision.gameObject.CompareTag("Python2"))//checkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+        {
+
+            Debug.Log(" U got one shield");
+            collision.GetComponent<Python2Controller>().ActivatePowerUp(powerUpType);
+
+            gameObject.SetActive(false);
+            Destroy(gameObject, 10);
 
         }
     }

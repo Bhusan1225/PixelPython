@@ -35,6 +35,24 @@ public class PoisonTrigger : MonoBehaviour
             
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.CompareTag("Python2"))
+            
+        {
+            Python2Controller pythonController = collision.gameObject.GetComponent<Python2Controller>();
+
+            pythonController.strinking();
+            pythonController.pointLoose();
+
+            PoisionSpawnController poisionSpawn = FindObjectOfType<PoisionSpawnController>();
+
+            isPoisionEatenByPython = true;
+
+            poisionSpawn.noPosionThere();
+
+
+            Destroy(gameObject);
+        }
     }
 
     private IEnumerator DestroyApple(float delay)

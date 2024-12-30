@@ -15,6 +15,7 @@ public class PoisionSpawnController : MonoBehaviour
 
     //script attach
     public PythonController python;
+    public Python2Controller python2;
 
 
     // Update is called once per frame
@@ -29,7 +30,7 @@ public class PoisionSpawnController : MonoBehaviour
         
         yield return new WaitForSeconds(15f);
 
-        if( python.segments.Count > 3)
+        if( python.segments.Count > 3 || python2.segments.Count > 3)
         {
             Debug.Log("Now the spaning will start.");
             spawnLoop();

@@ -811,6 +811,7 @@ MonoBehaviour:
   spawnAreaMax: {x: 24, y: 13}
   PoisonSpawnRotation: {x: 0, y: 0, z: 0, w: 1}
   python: {fileID: 436975507}
+  python2: {fileID: 8617394938818701151}
 --- !u!4 &1519166573
 Transform:
   m_ObjectHideFlags: 0
@@ -2048,6 +2049,7 @@ GameObject:
   - component: {fileID: 2263172321282976980}
   - component: {fileID: 4175923403290079320}
   - component: {fileID: 8617394938818701151}
+  - component: {fileID: 8617394938818701152}
   m_Layer: 0
   m_Name: 'Python2 head '
   m_TagString: Python2
@@ -2070,11 +2072,25 @@ MonoBehaviour:
   pythonSpeed: 1
   segmentPrefab: {fileID: 1179428790796442087, guid: f2520263a057cdb4bb62056bf92fff1a, type: 3}
   speedMultiplier: 1.5
-  shieldDuration: 15
+  shieldDuration: 100
   scoreBoostDuration: 5
   spawnManager: {fileID: 979687991}
   pointController: {fileID: 731673145}
   poisonTrigger: {fileID: 7041721681178474246, guid: e2c762f2492b2d04893c69e2f757eee0, type: 3}
+--- !u!114 &8617394938818701152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617394938818701150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5bd7946339b4041aee46dbe9299af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameoverCanvas: {fileID: 8299335663576158835}
+  ReplayButton: {fileID: 8034595750469663868}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -48,7 +48,7 @@ public class Point2Controller : MonoBehaviour
 
     public void checkShieldON_OFF()
     {
-        PythonController python = FindAnyObjectByType<PythonController>();
+        Python2Controller python = FindAnyObjectByType<Python2Controller>();
         if (python.hasShield == true)
         {
             Debug.Log(" do not worry, shield is on you will not loose the point.");

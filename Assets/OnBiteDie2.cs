@@ -4,31 +4,31 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class OnBiteDie : MonoBehaviour
+public class OnBiteDie2 : MonoBehaviour
 {  //UI
     public GameObject gameoverCanvas;
     public Button ReplayButton;
 
-   
+
     // Start is called before the first frame update
     void Start()
     {
         ReplayButton.onClick.AddListener(OnClickReplay);
-        
+
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PythonController python = FindAnyObjectByType<PythonController>();
-                       
+        Python2Controller python = FindAnyObjectByType<Python2Controller>();
+
         if (collision.gameObject.CompareTag("Python Body") && python.hasShield == false)// working properlys
         {
             Debug.Log("ohh... shit I bite myself.");
 
             gameoverCanvas.SetActive(true);
             Destroy(gameObject, 20);
-            
+
         }
     }
 
@@ -40,5 +40,6 @@ public class OnBiteDie : MonoBehaviour
 
     }
 
-    
+
 }
+
