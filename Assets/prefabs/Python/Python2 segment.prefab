@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 832737964832886579}
   m_Layer: 0
   m_Name: Python2 segment
-  m_TagString: Python Body
+  m_TagString: Python2 Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class OnBiteDie : MonoBehaviour
 {  //UI
     public GameObject gameoverCanvas;
+    public GameObject gameWinCanvasGreen;
     public Button ReplayButton;
     public Button QuitButton;
 
@@ -30,7 +31,17 @@ public class OnBiteDie : MonoBehaviour
 
             gameoverCanvas.SetActive(true);
             Destroy(gameObject, 20);
+            return;
             
+        }
+        Python2Controller python2 = FindAnyObjectByType<Python2Controller>();
+        if (collision.gameObject.CompareTag("Python2 Body") && python2.hasShield == false)// working properlys
+        {
+            Debug.Log("Yesss I bite him and win.");
+
+            gameWinCanvasGreen.SetActive(true);
+            Destroy(gameObject, 20);
+            return;
         }
     }
 

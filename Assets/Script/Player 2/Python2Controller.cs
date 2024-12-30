@@ -29,7 +29,9 @@ public class Python2Controller : MonoBehaviour
     private OnBiteDie onBiteDie;
     public PoisonTrigger poisonTrigger;
 
-
+    public GameObject PScoreBoost;
+    public GameObject PSpeedBoost;
+    public GameObject PShild;
 
     // Start is called before the first frame update
     void Start()
@@ -179,6 +181,7 @@ public class Python2Controller : MonoBehaviour
         {
 
             hasShield = true;
+            PShild.SetActive(true);
 
             Invoke(nameof(DeactivateShield), shieldDuration);
 
@@ -189,7 +192,7 @@ public class Python2Controller : MonoBehaviour
     {
 
         hasShield = false;
-
+        PShild.SetActive(false);
 
     }
 
@@ -199,7 +202,7 @@ public class Python2Controller : MonoBehaviour
         {
             scoreBoostActive = true;
             Debug.Log("Score Boost Activated!");
-
+            PScoreBoost.SetActive(true);
             Invoke(nameof(DeactivateScoreBoost), scoreBoostDuration);
         }
     }
@@ -207,6 +210,7 @@ public class Python2Controller : MonoBehaviour
     private void DeactivateScoreBoost()
     {
         scoreBoostActive = false;
+        PScoreBoost.SetActive(false);
         Debug.Log("Score Boost Deactivated!");
     }
 
@@ -216,6 +220,7 @@ public class Python2Controller : MonoBehaviour
         {
             hasSpeedboosterActive = true;
             Debug.Log("Speed Up Activated!");
+            PSpeedBoost.SetActive(true);
             Invoke(nameof(DeactivateSpeedUp), shieldDuration); // Restore original speed after duration
         }
     }
@@ -226,7 +231,7 @@ public class Python2Controller : MonoBehaviour
     private void DeactivateSpeedUp()
     {
         hasSpeedboosterActive = false;
-
+        PSpeedBoost.SetActive(false);
         Debug.Log("Speed Up Deactivated!");
     }
 }

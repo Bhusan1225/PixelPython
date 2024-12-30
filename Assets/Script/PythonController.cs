@@ -37,8 +37,13 @@ public class PythonController : MonoBehaviour
     //ScoreBooster on
     private OnBiteDie onBiteDie;
     public PoisonTrigger poisonTrigger;
-    
-    
+
+    //batch update
+    public GameObject GScoreBoost;
+    public GameObject GSpeedBoost;
+    public GameObject GShild;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -192,7 +197,7 @@ public void pointScored()
         {
 
             hasShield = true;
-            
+            GShild.SetActive(true);
             Invoke(nameof(DeactivateShield), shieldDuration);
             
         }
@@ -202,7 +207,7 @@ public void pointScored()
     {
 
         hasShield = false;
-       
+        GShild.SetActive(false);
 
     }
 
@@ -212,7 +217,7 @@ public void pointScored()
         {
             scoreBoostActive = true;
             Debug.Log("Score Boost Activated!");
-            
+            GScoreBoost.SetActive(true);
             Invoke(nameof(DeactivateScoreBoost), scoreBoostDuration);
         }
     }
@@ -220,6 +225,7 @@ public void pointScored()
     private void DeactivateScoreBoost()
     {
         scoreBoostActive = false;
+        GScoreBoost.SetActive(false);
         Debug.Log("Score Boost Deactivated!");
     }
 
@@ -229,6 +235,7 @@ public void pointScored()
         {
             hasSpeedboosterActive = true;
             Debug.Log("Speed Up Activated!");
+            GSpeedBoost.SetActive(true);
             Invoke(nameof(DeactivateSpeedUp), shieldDuration); // Restore original speed after duration
         }
     }
@@ -239,7 +246,7 @@ public void pointScored()
     private void DeactivateSpeedUp()
     {
         hasSpeedboosterActive = false;
-        
+        GSpeedBoost.SetActive(false);
         Debug.Log("Speed Up Deactivated!");
     }
 }
