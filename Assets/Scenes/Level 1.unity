@@ -1343,20 +1343,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
---- !u!114 &2263172321282976980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8617394938818701150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a497f3d5c7a2ba44a58dff37c9abc36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameoverCanvas: {fileID: 8299335663576158835}
-  ReplayButton: {fileID: 8034595750469663868}
 --- !u!1 &2555452286887949100
 GameObject:
   m_ObjectHideFlags: 0
@@ -2046,7 +2032,6 @@ GameObject:
   - component: {fileID: 4532334406287823226}
   - component: {fileID: 8178052777875918154}
   - component: {fileID: 587038179959585324}
-  - component: {fileID: 2263172321282976980}
   - component: {fileID: 4175923403290079320}
   - component: {fileID: 8617394938818701151}
   - component: {fileID: 8617394938818701152}
@@ -2071,7 +2056,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pythonSpeed: 1
   segmentPrefab: {fileID: 1179428790796442087, guid: f2520263a057cdb4bb62056bf92fff1a, type: 3}
-  speedMultiplier: 1.5
   shieldDuration: 100
   scoreBoostDuration: 5
   spawnManager: {fileID: 979687991}
