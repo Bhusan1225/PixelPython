@@ -9,25 +9,20 @@ public class OnBiteDie : MonoBehaviour
     public GameObject gameoverCanvas;
     public Button ReplayButton;
 
-    public bool isShieldActive = false;
+   
     // Start is called before the first frame update
     void Start()
     {
         ReplayButton.onClick.AddListener(OnClickReplay);
+        
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (isShieldActive)
-        {
-            Debug.Log("Shield is active, ignoring collision.");
-            return;
-        }
-
-       
-        if (collision.gameObject.CompareTag("Python Body"))
+        PythonController python = FindAnyObjectByType<PythonController>();
+                       
+        if (collision.gameObject.CompareTag("Python Body") && python.hasShield == false)
         {
             Debug.Log("ohh... shit I bite myself.");
 
@@ -44,4 +39,12 @@ public class OnBiteDie : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex);
 
     }
+
+    //private IEnumerator  makeShieldOff(float delay)
+    //{
+    //    yield return new WaitForSeconds(delay);
+
+    //    Destroy(gameObject);
+
+    //}
 }

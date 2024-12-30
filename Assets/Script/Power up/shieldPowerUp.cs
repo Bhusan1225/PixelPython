@@ -8,7 +8,7 @@ public class shieldPowerUp : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(DestroyShield(35f));
+        StartCoroutine(DestroyShield(20f));
     }
 
 
@@ -17,6 +17,10 @@ public class shieldPowerUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Python"))
         {
+
+            ShieldSpawnController spawnShield = FindAnyObjectByType<ShieldSpawnController>();
+            spawnShield.noShieldThere();
+
             Debug.Log(" U got one shild");
             collision.GetComponent<PythonController>().ActivatePowerUp(powerUpType);
             Destroy(gameObject); 

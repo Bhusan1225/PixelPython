@@ -22,11 +22,11 @@ public class PythonController : MonoBehaviour
     Vector3 currentDirection = Vector3.up;
 
     //segment of python 
-    private List<Transform> segments;
+    internal List<Transform> segments;
     public Transform segmentPrefab;
 
     //powerup
-    private bool hasShield = false;
+    internal bool hasShield = false;
     internal bool scoreBoostActive = false;
     private bool hasSpeedboosterActive = false;
 
@@ -74,8 +74,8 @@ public class PythonController : MonoBehaviour
         //}
 
 
-            // Move continuously in the direction the object is facing
-            transform.position += currentDirection * pythonSpeed;
+     // Move continuously in the direction the object is facing
+     transform.position += currentDirection * pythonSpeed;
 
         transform.position = new Vector3(
         Mathf.Round(transform.position.x),
@@ -126,8 +126,13 @@ public void pointScored()
         pointController.checkScoreboosterON_OFF();
     }
 
+    public void pointLoose()
+    {
+        pointController.checkShieldON_OFF();
+    }
 
-//python grow logic is here
+
+    //python grow logic is here
 
     public void Grow()
     {
@@ -192,9 +197,6 @@ public void pointScored()
         {
 
             hasShield = true;
-            GetComponent<OnBiteDie>().isShieldActive = true;
-            //GetComponent<OnBiteDie>().enabled = false;
-            
             
             Invoke(nameof(DeactivateShield), shieldDuration);
             
@@ -203,10 +205,9 @@ public void pointScored()
 
     private void DeactivateShield()
     {
-        hasShield = false;
-        //GetComponent<OnBiteDie>().enabled = true; //
-        GetComponent<OnBiteDie>().isShieldActive = false;
 
+        hasShield = false;
+       
 
     }
 

@@ -24,8 +24,8 @@ public class PointController : MonoBehaviour
 
     public void checkScoreboosterON_OFF()
     {
-        PythonController pythonController = FindAnyObjectByType<PythonController>();
-        if (pythonController.scoreBoostActive ==false)
+        PythonController python = FindAnyObjectByType<PythonController>();
+        if (python.scoreBoostActive ==false)
         {
             getPoint(1);
         }
@@ -43,6 +43,25 @@ public class PointController : MonoBehaviour
     public void getDoublegetPoint(int DoubleIncrement)
     {
         points += DoubleIncrement;
+        pointText.text = "Point:" + points;
+    }
+
+
+    public void checkShieldON_OFF()
+    {
+        PythonController python = FindAnyObjectByType<PythonController>();
+        if (python.hasShield == true)
+        {
+            Debug.Log(" do not worry, shield is on you will not loose the point.");
+        }
+        else
+        {
+            LoosePoint(1);
+        }
+    }
+    public void LoosePoint(int decrement)
+    {
+        points -= decrement;
         pointText.text = "Point:" + points;
     }
 }

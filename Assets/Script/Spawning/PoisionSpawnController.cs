@@ -13,14 +13,32 @@ public class PoisionSpawnController : MonoBehaviour
 
     public Quaternion PoisonSpawnRotation = Quaternion.identity;
 
+    //script attach
+    public PythonController python;
+
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
-        spawnLoop();
+        
+        StartCoroutine(DelayedStart());
     }
 
+    IEnumerator DelayedStart()
+    {
+        
+        yield return new WaitForSeconds(15f);
+
+        if( python.segments.Count > 3)
+        {
+            Debug.Log("Now the spaning will start.");
+            spawnLoop();
+        }
+        else
+        {
+            Debug.Log("Small...");
+        }
+    }
     public void spawnLoop()
     {
 

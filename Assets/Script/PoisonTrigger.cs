@@ -12,7 +12,7 @@ public class PoisonTrigger : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(DestroyApple(30f));
+        StartCoroutine(DestroyApple(20f));
         
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,6 +24,7 @@ public class PoisonTrigger : MonoBehaviour
             PythonController pythonController = collision.gameObject.GetComponent<PythonController>();
 
             pythonController.strinking();
+            pythonController.pointLoose();
 
             PoisionSpawnController poisionSpawn = FindObjectOfType<PoisionSpawnController>();
             
@@ -31,7 +32,7 @@ public class PoisonTrigger : MonoBehaviour
             
             poisionSpawn.noPosionThere();
 
-            //gameObject.SetActive(false);
+            
             Destroy(gameObject);
         }
     }

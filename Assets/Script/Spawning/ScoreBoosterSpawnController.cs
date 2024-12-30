@@ -2,23 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldSpawnController : MonoBehaviour
-
-
+public class ScoreBoosterSpawnController : MonoBehaviour
 {
-    public bool isShieldThere = false;
+   
+    public bool isScoreBoosterThere = false;
 
-    public GameObject Shield;
+    public GameObject ScoreBooster;
 
     public Vector2 spawnAreaMin = new Vector2(24, -15);
     public Vector2 spawnAreaMax = new Vector2(18, 15);
 
-    public Quaternion ShieldSpawnRotation = Quaternion.identity;
+    public Quaternion ScoreBoosterSpawnRotation = Quaternion.identity;
 
 
     // Update is called once per frame
     void Update()
     {
+
+        StartCoroutine(DelayedStart());
+    }
+
+    IEnumerator DelayedStart()
+    {
+
+        yield return new WaitForSeconds(50f);
+
 
         spawnLoop();
     }
@@ -27,7 +35,7 @@ public class ShieldSpawnController : MonoBehaviour
     {
 
 
-        while (isShieldThere == false)
+        while (isScoreBoosterThere == false)
         {
 
             spawnPoison();
@@ -43,17 +51,19 @@ public class ShieldSpawnController : MonoBehaviour
             );
 
         Debug.Log("Poison spawned");
-        Instantiate(Shield, randomPosition, ShieldSpawnRotation);
+        Instantiate(ScoreBooster, randomPosition, ScoreBoosterSpawnRotation);
 
 
 
 
-        isShieldThere = true;
+        isScoreBoosterThere = true;
     }
 
-    public void noShieldThere()
+    public void noScoreBoosterThere()
     {
-        isShieldThere = false;
+        isScoreBoosterThere = false;
     }
 }
+
+
 
