@@ -8,19 +8,21 @@ public class OnBiteDie2 : MonoBehaviour
 {  //UI
     public GameObject gameoverCanvas;
     public GameObject gameWinCanvas;
-    public Button ReplayButton;
-    public Button QuitButton;
+    public Button PReplayButton;
+    public Button PQuitButton;
 
-    
 
+    public Button OReplayButton;
+    public Button OQuitButton;
 
     // Start is called before the first frame update
     void Start()
     {
-        ReplayButton.onClick.AddListener(OnClickReplay);
-        QuitButton.onClick.AddListener(OnClickQuit);
+        PReplayButton.onClick.AddListener(OnClickReplay);
+        PQuitButton.onClick.AddListener(OnClickQuit);
 
-
+        OReplayButton.onClick.AddListener(OnClickReplay);
+        OQuitButton.onClick.AddListener(OnClickQuit);
     }
     
     private void OnTriggerEnter2D(Collider2D collision)

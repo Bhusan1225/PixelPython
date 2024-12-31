@@ -8,16 +8,21 @@ public class OnBiteDie : MonoBehaviour
 {  //UI
     public GameObject gameoverCanvas;
     public GameObject gameWinCanvasGreen;
-    public Button ReplayButton;
-    public Button QuitButton;
+    public Button GReplayButton;
+    public Button GQuitButton;
 
+    public Button OReplayButton;
+    public Button OQuitButton;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        ReplayButton.onClick.AddListener(OnClickReplay);
-        QuitButton.onClick.AddListener(OnClickQuit);
+        GReplayButton.onClick.AddListener(OnClickReplay);
+        GQuitButton.onClick.AddListener(OnClickQuit);
 
+        OReplayButton.onClick.AddListener(OnClickReplay);
+        OQuitButton.onClick.AddListener(OnClickQuit);
 
     }
 

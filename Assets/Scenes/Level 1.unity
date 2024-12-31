@@ -681,7 +681,7 @@ GameObject:
   - component: {fileID: 281988281}
   - component: {fileID: 281988282}
   m_Layer: 0
-  m_Name: ScoreBoosterSpawnController ----  (1)
+  m_Name: 'ScoreBoosterSpawnController ----  '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -716,8 +716,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isScoreBoosterThere: 0
   ScoreBooster: {fileID: 8111615641662759016, guid: 667d2a12cd5a7154295d53fb96896be0, type: 3}
-  spawnAreaMin: {x: -45, y: -18}
-  spawnAreaMax: {x: 30, y: 18}
+  spawnAreaMin: {x: -24, y: -10}
+  spawnAreaMax: {x: 24, y: 10}
   ScoreBoosterSpawnRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &313909211
 GameObject:
@@ -1008,6 +1008,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373118719}
   m_CullTransparentMesh: 1
+--- !u!1 &396555066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 396555068}
+  - component: {fileID: 396555067}
+  m_Layer: 0
+  m_Name: Square
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &396555067
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396555066}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &396555068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396555066}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.64, y: -10.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &436975507 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6823140950568910366, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
@@ -1950,7 +2034,7 @@ GameObject:
   - component: {fileID: 663298607}
   - component: {fileID: 663298606}
   m_Layer: 5
-  m_Name: 'quit_Button '
+  m_Name: 'Oquit_Button '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2312,8 +2396,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAppleThere: 0
   Apple: {fileID: 7718120959139223772, guid: 9f15be9b08a6c7740885c5c3f73b713f, type: 3}
-  spawnAreaMin: {x: -24, y: -12}
-  spawnAreaMax: {x: 24, y: 13}
+  spawnAreaMin: {x: -24, y: -10}
+  spawnAreaMax: {x: 24, y: 10}
   AppleSpawnRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!4 &979687992
 Transform:
@@ -3337,8 +3421,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPoisonThere: 0
   Poison: {fileID: 5211857439290602862, guid: e2c762f2492b2d04893c69e2f757eee0, type: 3}
-  spawnAreaMin: {x: -24, y: -12}
-  spawnAreaMax: {x: 24, y: 13}
+  spawnAreaMin: {x: -24, y: -10}
+  spawnAreaMax: {x: 24, y: 10}
   PoisonSpawnRotation: {x: 0, y: 0, z: 0, w: 1}
   python: {fileID: 436975507}
   python2: {fileID: 8617394938818701151}
@@ -3482,8 +3566,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isShieldThere: 0
   Shield: {fileID: 28923900846211584, guid: 3a7f946312ea5cb4a9186fe827ffdd6f, type: 3}
-  spawnAreaMin: {x: -24, y: -12}
-  spawnAreaMax: {x: 24, y: 13}
+  spawnAreaMin: {x: -24, y: -10}
+  spawnAreaMax: {x: 24, y: 10}
   ShieldSpawnRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &1595653783
 GameObject:
@@ -4533,7 +4617,7 @@ GameObject:
   - component: {fileID: 2727543603433424441}
   - component: {fileID: 8034595750469663868}
   m_Layer: 5
-  m_Name: Replay_Button
+  m_Name: OReplay_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4572,7 +4656,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 70232169}
     - target: {fileID: 174923223000270764, guid: 7125b208092bc124a9f5b7a87cb5469d, type: 3}
+      propertyPath: OQuitButton
+      value: 
+      objectReference: {fileID: 663298606}
+    - target: {fileID: 174923223000270764, guid: 7125b208092bc124a9f5b7a87cb5469d, type: 3}
+      propertyPath: PQuitButton
+      value: 
+      objectReference: {fileID: 70232169}
+    - target: {fileID: 174923223000270764, guid: 7125b208092bc124a9f5b7a87cb5469d, type: 3}
       propertyPath: ReplayButton
+      value: 
+      objectReference: {fileID: 1429618901}
+    - target: {fileID: 174923223000270764, guid: 7125b208092bc124a9f5b7a87cb5469d, type: 3}
+      propertyPath: OReplayButton
+      value: 
+      objectReference: {fileID: 8034595750469663868}
+    - target: {fileID: 174923223000270764, guid: 7125b208092bc124a9f5b7a87cb5469d, type: 3}
+      propertyPath: PReplayButton
       value: 
       objectReference: {fileID: 1429618901}
     - target: {fileID: 174923223000270764, guid: 7125b208092bc124a9f5b7a87cb5469d, type: 3}
@@ -4673,9 +4773,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 30578614}
     - target: {fileID: 1567685107260276715, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
+      propertyPath: GQuitButton
+      value: 
+      objectReference: {fileID: 30578614}
+    - target: {fileID: 1567685107260276715, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
+      propertyPath: OQuitButton
+      value: 
+      objectReference: {fileID: 663298606}
+    - target: {fileID: 1567685107260276715, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
       propertyPath: ReplayButton
       value: 
       objectReference: {fileID: 1355893939}
+    - target: {fileID: 1567685107260276715, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
+      propertyPath: GReplayButton
+      value: 
+      objectReference: {fileID: 1355893939}
+    - target: {fileID: 1567685107260276715, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
+      propertyPath: OReplayButton
+      value: 
+      objectReference: {fileID: 8034595750469663868}
     - target: {fileID: 1567685107260276715, guid: 23200250c9786744ab02f3ec721421e5, type: 3}
       propertyPath: gameWinCanvas
       value: 
@@ -5296,6 +5412,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 961964987}
+  - {fileID: 396555068}
   - {fileID: 2103280574564188190}
   - {fileID: 1456871042343739656}
   - {fileID: 1356239348}
