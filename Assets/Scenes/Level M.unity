@@ -1118,7 +1118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a286df54b42f14880a85125e00135b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointText: {fileID: 0}
+  pointText: {fileID: 6519511185826805798}
 --- !u!4 &476896156
 Transform:
   m_ObjectHideFlags: 0
@@ -5119,6 +5119,17 @@ PrefabInstance:
 --- !u!114 &6519511185826805797 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8700415893071491150, guid: 2cd51aa690475c54f8cacac39edd011f, type: 3}
+  m_PrefabInstance: {fileID: 6519511185826805796}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6519511185826805798 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6250520451324176763, guid: 2cd51aa690475c54f8cacac39edd011f, type: 3}
   m_PrefabInstance: {fileID: 6519511185826805796}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
