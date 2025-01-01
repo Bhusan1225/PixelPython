@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Python Body
+  - Python
+  - Python2
+  - Python2 Body
   layers:
   - Default
   - TransparentFX
