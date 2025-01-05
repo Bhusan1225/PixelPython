@@ -29,7 +29,18 @@ public class OnBiteDie : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PythonController python = FindAnyObjectByType<PythonController>();
-                       
+
+        if (collision.gameObject.CompareTag("Python Body") && python.hasShield == false)
+        {
+            Debug.Log("ohh... shit I bite myself.");
+
+            gameoverCanvas.SetActive(true);
+            Destroy(gameObject, 20);
+            return;
+
+        }
+
+
         if (collision.gameObject.CompareTag("Python Body") && python.hasShield == false)// working properlys
         {
             Debug.Log("ohh... shit I bite myself.");
@@ -37,7 +48,7 @@ public class OnBiteDie : MonoBehaviour
             gameoverCanvas.SetActive(true);
             Destroy(gameObject, 20);
             return;
-            
+
         }
         Python2Controller python2 = FindAnyObjectByType<Python2Controller>();
         if (collision.gameObject.CompareTag("Python2 Body") && python2.hasShield == false)// working properlys

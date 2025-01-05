@@ -35,7 +35,6 @@ public class PythonController : MonoBehaviour
 
 
     //ScoreBooster on
-    private OnBiteDie onBiteDie;
     public PoisonTrigger poisonTrigger;
 
     //batch update
@@ -50,7 +49,7 @@ public class PythonController : MonoBehaviour
     {
         segments = new List<Transform>();
         segments.Add(this.transform);
-        onBiteDie = GetComponent<OnBiteDie>();
+        
 
 
     }
@@ -198,13 +197,24 @@ public void pointScored()
 
             hasShield = true;
             GShild.SetActive(true);
-            Invoke(nameof(DeactivateShield), shieldDuration);
+            
+            
+            //problem................................................................
+            OnBiteDie onBiteDie = FindAnyObjectByType<OnBiteDie>();
+
+            onBiteDie.enabled = false;
+;           Invoke(nameof(DeactivateShield), shieldDuration);
             
         }
     }
 
     private void DeactivateShield()
     {
+        //problem................................................................
+        OnBiteDie onBiteDie = FindAnyObjectByType<OnBiteDie>();
+        onBiteDie.enabled = true;
+
+
 
         hasShield = false;
         GShild.SetActive(false);
