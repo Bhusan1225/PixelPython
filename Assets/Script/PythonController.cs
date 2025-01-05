@@ -197,13 +197,24 @@ public void pointScored()
 
             hasShield = true;
             GShild.SetActive(true);
-            Invoke(nameof(DeactivateShield), shieldDuration);
+            
+            
+            //problem................................................................
+            OnBiteDie onBiteDie = FindAnyObjectByType<OnBiteDie>();
+
+            onBiteDie.enabled = false;
+;           Invoke(nameof(DeactivateShield), shieldDuration);
             
         }
     }
 
     private void DeactivateShield()
     {
+        //problem................................................................
+        OnBiteDie onBiteDie = FindAnyObjectByType<OnBiteDie>();
+        onBiteDie.enabled = true;
+
+
 
         hasShield = false;
         GShild.SetActive(false);

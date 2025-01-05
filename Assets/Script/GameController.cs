@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+   // public static GameController Instance { get; private set; }
+
     public Button SplayButton;
     public Button MplayButton;
     public Button InfoButton;
 
     public string SsceneName;
     public string MsceneName;
+    public string IsceneName;
 
     // Start is called before the first frame update
     void Start()
@@ -21,11 +24,18 @@ public class GameController : MonoBehaviour
         InfoButton.onClick.AddListener(InfoOnClickPlay);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    //private void Awake()
+    //{
         
-    }
+    //    if (Instance != null && Instance != this)
+    //    {
+    //        Destroy(gameObject); 
+    //        return;
+    //    }
+
+    //    Instance = this; 
+    //    DontDestroyOnLoad(gameObject); 
+    //}
 
     void SOnClickPlay()
     {
@@ -42,7 +52,7 @@ public class GameController : MonoBehaviour
     void InfoOnClickPlay()
     {
 
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(IsceneName);
 
     }
 }
